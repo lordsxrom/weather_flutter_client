@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=weather_flutter_client
+Comment=A new Flutter project.
+Icon=ru.era.weather_flutter_client
+Exec=/usr/bin/ru.era.weather_flutter_client
+X-Nemo-Application-Type=silica-qt5
+
+[X-Application]
+Permissions=UserDirs;Internet
+OrganizationName=ru.era
+ApplicationName=weather_flutter_client

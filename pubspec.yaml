@@ -31,6 +31,12 @@ dependencies:
   flutter:
     sdk: flutter
   divkit: ^0.5.0
+
+  path_provider_aurora:
+    git:
+      url: https://gitlab.com/omprussia/flutter/packages.git
+      path: packages/path_provider_aurora
+
       
 
   http: ^0.13.3   
