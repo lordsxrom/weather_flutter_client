@@ -4,21 +4,23 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const App());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class App extends StatelessWidget {
+  const App({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: DataFetcher(),
     );
   }
 }
 
 class DataFetcher extends StatefulWidget {
+  const DataFetcher({super.key});
+
   @override
   _DataFetcherState createState() => _DataFetcherState();
 }
@@ -41,20 +43,13 @@ class _DataFetcherState extends State<DataFetcher> {
       data = null;
     });
 
-    String domain;
-    // if (Platform.isAndroid) {
-    //   domain = '10.0.2.2:8080';
-    // } else {
-      // domain = '127.0.0.1:8080';
-    // }
-    domain = '84.201.148.80:8080';
-    final url = Uri.http(domain, '/launch');
-    final Map<String, String> headers = {
-      'Content-Type': 'application/json',
-    };
-
     try {
-      final response = await http.get(url, headers: headers);
+      final response = await http.get(
+        Uri.http('84.201.148.80:8080', '/launch'),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      );
 
       if (response.statusCode == 200) {
         final responseData = jsonDecode(response.body);
@@ -97,7 +92,7 @@ class _DataFetcherState extends State<DataFetcher> {
     );
   }
 
-  Widget ErrorWidget(String errorMessage) {
+  Widget errorWidget(String errorMessage) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
