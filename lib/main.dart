@@ -80,7 +80,7 @@ class _DataFetcherState extends State<DataFetcher> {
           child: isLoading
               ? const CircularProgressIndicator()
               : errorMessage != null
-                  ? ErrorWidget(errorMessage!)
+                  ? errorWidget(errorMessage!)
                   : DivKitView(
                       data: data!,
                       //customHandler: MyCustomHandler(), // DivCustomHandler?
